@@ -1,5 +1,5 @@
 // Get the container where list items will be added
-const listContainer = document.getElementById('list');
+const listContainer = document.getElementById('infi-list');
 
 // Track the current item count
 let itemCount = 0;
@@ -17,10 +17,10 @@ function addListItems(count) {
 // Add 10 list items initially
 addListItems(10);
 
-// Add infinite scroll functionality
-window.addEventListener('scroll', () => {
-  // Check if the user has scrolled to the bottom
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+// Infinite scroll inside the list container
+listContainer.addEventListener('scroll', () => {
+  // Check if user reached the bottom of the container
+  if (listContainer.scrollTop + listContainer.clientHeight >= listContainer.scrollHeight - 1) {
     addListItems(2); // Add 2 more items
   }
 });
